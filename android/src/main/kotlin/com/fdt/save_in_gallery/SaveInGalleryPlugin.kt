@@ -36,6 +36,7 @@ class SaveInGalleryPlugin(
 
         @JvmStatic
         fun registerWith(registrar: Registrar) {
+            if (registrar.activity()==null){ return }
             val channel = MethodChannel(registrar.messenger(), CHANNEL_NAME)
             val galleryPlugin = SaveInGalleryPlugin(registrar.activity())
             channel.setMethodCallHandler(galleryPlugin)
